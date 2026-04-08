@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio của Nguyễn Minh Đại - Sinh viên CNTT đam mê Web/Desktop và AI trong EdTech.">
+    <title>Nguyễn Minh Đại | Portfolio Cá Nhân</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6', // Nổi bật: Blue
+                        dark: '#0f172a',    // Nền tối: Slate 900
+                        card: '#1e293b'     // Nền Card: Slate 800
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS tuỳ chỉnh -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Hiệu ứng kính cho Navbar */
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Hiệu ứng hover cho Card dự án */
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+            border-color: rgba(59, 130, 246, 0.6);
+        }
+
+        /* Tuỳ chỉnh Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+        /* Animation Gradient Background */
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-dark text-slate-300 antialiased selection:bg-primary selection:text-white">
+
+    <!-- Navbar -->
+    <header class="glass-nav fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#about" class="text-2xl font-bold text-white tracking-widest hover:text-primary transition-colors">
+                    NMD<span class="text-primary">.</span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-sm font-medium hover:text-primary transition-colors hover:scale-105 transform">Giới Thiệu</a>
+                    <a href="#projects" class="text-sm font-medium hover:text-primary transition-colors hover:scale-105 transform">Dự Án</a>
+                    <a href="#certificates" class="text-sm font-medium hover:text-primary transition-colors hover:scale-105 transform">Chứng Chỉ</a>
+                    <a href="#contact" class="text-sm font-medium hover:text-primary transition-colors hover:scale-105 transform">Liên Hệ</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="hidden md:hidden pb-6">
+                <div class="flex flex-col space-y-4">
+                    <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-primary transition-colors">Giới Thiệu</a>
+                    <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-primary transition-colors">Dự Án</a>
+                    <a href="#certificates" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-primary transition-colors">Chứng Chỉ</a>
+                    <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-primary transition-colors">Liên Hệ</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero / About Section -->
+        <section id="about" class="min-h-screen flex items-center pt-20 px-6 lg:px-8 relative overflow-hidden">
+            <!-- Background Decoration -->
+            <div class="absolute top-20 left-0 w-72 h-72 bg-primary/20 rounded-full blur-3xl -z-10 mix-blend-screen opacity-50 animate-pulse"></div>
+            <div class="absolute bottom-20 right-0 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl -z-10 mix-blend-screen opacity-50"></div>
+
+            <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <p class="text-primary font-mono font-medium mb-3 tracking-wide">Xin chào, tôi là</p>
+                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">
+                        Nguyễn Minh Đại
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-slate-400">
+                        <span class="gradient-text">Frontend Developer</span> & Đam Mê Công Nghệ
+                    </h2>
+                    
+                    <div class="border-l-4 border-primary pl-4 mb-8 bg-slate-800/30 p-4 rounded-r-lg border border-slate-800 shadow-sm border-l-primary">
+                        <p class="text-slate-300 md:text-lg mb-2"><i class="fa-solid fa-id-card w-6 text-primary"></i> <strong>MSSV:</strong> 49.01.104.027</p>
+                        <p class="text-slate-300 md:text-lg"><i class="fa-solid fa-graduation-cap w-6 text-primary"></i> <strong>Định hướng:</strong> Sinh viên năm 3, học song ngành Công nghệ Thông tin & Sư phạm Tin học tại ĐH Sư phạm TP.HCM.</p>
+                    </div>
+
+                    <p class="text-slate-400 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl">
+                        Đam mê phát triển ứng dụng Web/Desktop và có khát khao nghiên cứu, tích hợp các giải pháp Trí tuệ nhân tạo (AI) vào các ứng dụng công nghệ giáo dục (EdTech), mang lại trải nghiệm học tập hiện đại.
+                    </p>
+
+                    <div class="flex gap-4">
+                        <a href="#projects" class="px-8 py-3 bg-primary text-white font-medium rounded-lg hover:bg-blue-600 transition-colors shadow-lg shadow-primary/30 flex items-center gap-2">
+                            Xem Dự Án <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="px-8 py-3 bg-transparent border border-slate-600 text-slate-300 font-medium rounded-lg hover:border-slate-400 hover:text-white transition-colors">
+                            Liên Hệ
+                        </a>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full border-4 border-slate-800 p-2 shadow-2xl">
+                        <!-- Giả định Ảnh đại diện, dùng UI Element thay thế nếu không có ảnh gốc -->
+                        <div class="w-full h-full rounded-full bg-slate-800 flex items-center justify-center overflow-hidden relative group">
+                            <i class="fa-solid fa-user-astronaut text-8xl text-slate-600 group-hover:scale-110 transition-transform duration-500"></i>
+                            <div class="absolute inset-0 bg-gradient-to-tr from-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 px-6 lg:px-8 bg-slate-900/50">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex items-center gap-4 mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white"><span class="text-primary">01.</span> Dự Án Nổi Bật</h2>
+                    <div class="h-px bg-slate-700 flex-grow max-w-sm"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="project-card bg-card border border-slate-700 rounded-xl overflow-hidden flex flex-col h-full group">
+                        <div class="h-48 bg-slate-800 flex items-center justify-center p-6 relative overflow-hidden">
+                            <i class="fa-solid fa-microphone-lines text-6xl text-slate-600 group-hover:text-primary transition-colors duration-300"></i>
+                            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-card/90"></div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow relative z-10 -mt-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">NNice Karaoke Management</h3>
+                                <i class="fa-solid fa-folder-open text-primary text-xl"></i>
+                            </div>
+                            <p class="text-slate-400 text-sm mb-6 flex-grow">
+                                Hệ thống quản lý phòng hát chuyên nghiệp, đặt dịch vụ và báo cáo doanh thu với các phân hệ dành riêng cho Admin và Lễ tân.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6 text-xs font-mono text-slate-300">
+                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">React</span>
+                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">TypeScript</span>
+                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">Vite</span>
+                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">Tailwind</span>
+                            </div>
+                            <a href="https://github.com/nmdai679" target="_blank" class="text-sm font-medium text-white bg-slate-700 hover:bg-primary py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 w-full">
+                                <i class="fa-brands fa-github text-lg"></i> Xem trên GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card bg-card border border-slate-700 rounded-xl overflow-hidden flex flex-col h-full group">
+                        <div class="h-48 bg-slate-800 flex items-center justify-center p-6 relative overflow-hidden">
+                            <i class="fa-solid fa-mug-hot text-6xl text-slate-600 group-hover:text-emerald-500 transition-colors duration-300"></i>
+                            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-card/90"></div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow relative z-10 -mt-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">Milk Tea Shop Management</h3>
+                                <i class="fa-solid fa-folder-open text-emerald-500 text-xl"></i>
+                            </div>
+                            <p class="text-slate-400 text-sm mb-6 flex-grow">
+                                Phần mềm POS quản lý bán trà sữa, topping và thống kê doanh thu chuẩn mô hình thiết kế 3 lớp (3-tier) cho các cửa hàng.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6 text-xs font-mono text-slate-300">
+                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">C#</span>
+                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">.NET WinForms</span>
+                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">MySQL</span>
+                            </div>
+                            <a href="https://github.com/nmdai679" target="_blank" class="text-sm font-medium text-white bg-slate-700 hover:bg-primary py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 w-full mt-auto">
+                                <i class="fa-brands fa-github text-lg"></i> Xem trên GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card bg-card border border-slate-700 rounded-xl overflow-hidden flex flex-col h-full group">
+                        <div class="h-48 bg-slate-800 flex items-center justify-center p-6 relative overflow-hidden">
+                            <i class="fa-solid fa-file-invoice-dollar text-6xl text-slate-600 group-hover:text-purple-500 transition-colors duration-300"></i>
+                            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-card/90"></div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow relative z-10 -mt-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">Sales Management System</h3>
+                                <i class="fa-solid fa-folder-open text-purple-500 text-xl"></i>
+                            </div>
+                            <p class="text-slate-400 text-sm mb-6 flex-grow">
+                                Phần mềm quản lý bán hàng tích hợp tính năng tạo, in hóa đơn và xuất báo cáo thống kê định kỳ hàng tháng.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6 text-xs font-mono text-slate-300">
+                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">C#</span>
+                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">LINQ to SQL</span>
+                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">RDLC</span>
+                            </div>
+                            <a href="https://github.com/nmdai679" target="_blank" class="text-sm font-medium text-white bg-slate-700 hover:bg-primary py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 w-full mt-auto">
+                                <i class="fa-brands fa-github text-lg"></i> Xem trên GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="py-24 px-6 lg:px-8 relative">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center gap-4 mb-16 justify-center text-center">
+                    <div class="h-px bg-slate-700 flex-grow max-w-[100px] hidden md:block"></div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white"><span class="text-primary">02.</span> Chứng Chỉ & Thành Tựu</h2>
+                    <div class="h-px bg-slate-700 flex-grow max-w-[100px] hidden md:block"></div>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Cert 1 -->
+                    <div class="bg-card border border-slate-700/50 hover:border-primary/50 p-6 rounded-xl flex items-center gap-6 group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-slate-800/80">
+                        <div class="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-google text-3xl text-blue-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-200 group-hover:text-primary transition-colors">Google Cloud Generative AI Learning Path</h3>
+                            <p class="text-slate-400 text-sm mt-1">Google Cloud Training</p>
+                        </div>
+                    </div>
+
+                    <!-- Cert 2 -->
+                    <div class="bg-card border border-slate-700/50 hover:border-blue-500/50 p-6 rounded-xl flex items-center gap-6 group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-slate-800/80">
+                        <div class="w-16 h-16 rounded-full bg-sky-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-code text-3xl text-sky-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-200 group-hover:text-blue-400 transition-colors">Mendix Rapid Developer Certification</h3>
+                            <p class="text-slate-400 text-sm mt-1">Mendix Academy</p>
+                        </div>
+                    </div>
+
+                    <!-- Cert 3 -->
+                    <div class="bg-card border border-slate-700/50 hover:border-orange-500/50 p-6 rounded-xl flex items-center gap-6 group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-slate-800/80">
+                        <div class="w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-microsoft text-3xl text-orange-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-200 group-hover:text-orange-400 transition-colors">Microsoft Office Specialist (MOS)</h3>
+                            <p class="text-slate-400 text-sm mt-1">Microsoft Certification</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 px-6 lg:px-8 bg-slate-900/80 border-t border-slate-800">
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-primary font-mono font-medium mb-4 tracking-wide">03. Kết nối với tôi</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Liên Hệ Làm Việc</h2>
+                <p class="text-slate-400 text-lg mb-10 max-w-xl mx-auto">
+                    Tôi luôn cởi mở đón nhận các cơ hội mới, những dự án thú vị và những cuộc trò chuyện về công nghệ Web, Desktop cũng như AI. Đừng ngần ngại liên hệ nhé!
+                </p>
+
+                <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
+                    <a href="mailto:contact@example.com" class="flex items-center gap-3 bg-slate-800 px-6 py-4 rounded-xl border border-slate-700 hover:border-primary transition-colors group w-full md:w-auto">
+                        <i class="fa-solid fa-envelope text-2xl text-slate-400 group-hover:text-primary transition-colors"></i>
+                        <span class="text-slate-300 font-medium">Gửi Email</span>
+                    </a>
+                    <a href="tel:+84000000000" class="flex items-center gap-3 bg-slate-800 px-6 py-4 rounded-xl border border-slate-700 hover:border-primary transition-colors group w-full md:w-auto">
+                        <i class="fa-solid fa-phone text-2xl text-slate-400 group-hover:text-primary transition-colors"></i>
+                        <span class="text-slate-300 font-medium">Gọi Điện Bàn Bạc</span>
+                    </a>
+                </div>
+
+                <div class="flex justify-center gap-6">
+                    <a href="https://github.com/nmdai679" target="_blank" class="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-700 hover:border-slate-500 transition-all">
+                        <i class="fa-brands fa-github text-xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/nmdai679" target="_blank" class="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:text-[#0a66c2] hover:bg-slate-800 hover:border-[#0a66c2] transition-all">
+                        <i class="fa-brands fa-linkedin-in text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center border-t border-slate-800 bg-dark">
+        <p class="text-sm font-mono text-slate-500">
+            &copy; 2024 Được thiết kế và phát triển bởi <a href="https://github.com/nmdai679" class="text-primary hover:underline">Nguyễn Minh Đại</a>.
+        </p>
+    </footer>
+
+    <!-- JavaScript cơ bản cho Mobile Menu -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Tự động đóng menu khi chọn link (Mobile)
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
