@@ -38,7 +38,7 @@ Không cần `npm install` hay quy trình build phức tạp!
 
 ## 🌐 Trải Nghiệm Live Demo
 Bạn có thể xem bản Live Demo đã được Deploy lên GitHub Pages tại:
-👉 **[Link Live Demo (Cập nhật sau)](https://nmdai679.github.io/portfolio)**
+👉 **[Link Live Demo (Cập nhật sau)](https://nmdai679.github.io/Portfolio/)**
 
 ## 📬 Liên Hệ
 
