@@ -1,42 +1,41 @@
-# 🚀 Modern Creative Portfolio | Nguyễn Minh Đại
+# 🚀 Modern Portfolio | Nguyễn Minh Đại
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-Live-blueviolet?style=for-the-badge&logo=appveyor)](https://nmdai679.github.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-Chào mừng bạn đến với kho lưu trữ mã nguồn trang Portfolio cá nhân của tôi. Đây là phiên bản được thiết kế lại hoàn toàn với tiêu chuẩn **Senior Creative Frontend**, tập trung vào trải nghiệm người dùng (UX) và hiệu ứng thị giác (Visual Effects) mạnh mẽ.
+Chào mừng bạn đến với kho lưu trữ mã nguồn trang Portfolio cá nhân của tôi. Đây là phiên bản được thiết kế với phong cách **Glassmorphism**, tập trung vào sự tối giản, hiện đại và tính chuyên nghiệp của một Sinh viên IT kết hợp Sư phạm.
 
 ## ✨ Điểm nổi bật (Features)
 
-- **🎨 Design System:** Phong cách **Glassmorphism** sang trọng trên nền **Dark Mode** mặc định.
-- **📱 Responsive:** Tối ưu hóa hoàn hảo trên mọi thiết bị (Mobile, Tablet, Desktop).
-- **🧩 Bento Grid:** Bố cục hiện đại cho phần trưng bày Kỹ năng và Dự án.
-- **🎭 Motion & Interactivity:**
-  - **AOS (Animate On Scroll):** Hiệu ứng xuất hiện mượt mà khi cuộn trang.
-  - **Typed.js:** Hiệu ứng gõ chữ chuyên nghiệp ở phần Hero.
-  - **Vanilla-Tilt:** Hiệu ứng 3D Hover/Tilt cho các thẻ dự án và chứng chỉ.
-- **🚀 Performance:** Tích hợp qua CDN để tối ưu hóa tốc độ tải trang.
+- **🎨 Design System:** Phong cách **Glassmorphism** cao cấp, Dark Mode mặc định với các hiệu ứng Blur mượt mà.
+- **📱 Responsive:** Tương thích hoàn hảo trên Mobile, Tablet và Desktop (Grid & Flexbox).
+- **🧩 Bento Grid Skills:** Trưng bày kỹ năng theo các nhóm Logic (Languages, AI & Data, Frameworks, Tools).
+- **🎭 Hiệu ứng động:**
+  - **AOS (Animate On Scroll):** Hiệu ứng trượt khi cuộn trang.
+  - **Typed.js:** Hiệu ứng gõ chữ giới thiệu bản thân linh hoạt.
+  - **Vanilla-Tilt:** Hiệu ứng 3D nghiêng (Tilt) khi Hover vào các thẻ Card.
 
-## 🛠️ Công nghệ sử dụng (Tech Stack)
+## 🛠️ Hệ sinh thái kỹ năng (Tech Stack)
 
-- **Core:** HTML5, Modern JavaScript (ES6+).
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/) (Utility-first CSS framework).
-- **Icons:** [Font Awesome 6](https://fontawesome.com/).
-- **Fonts:** [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans) (Google Fonts).
-- **Libraries:**
-  - [AOS](https://michalsnik.github.io/aos/) (Scroll Animations).
-  - [Typed.js](https://mattboldt.com/demos/typed-js/) (Typing Effect).
-  - [Vanilla-Tilt](https://micku7zu.github.io/vanilla-tilt.js/) (3D Tilt Effect).
+### 💻 Lập trình & Frameworks
+- **Languages:** C#, C++, Python, PHP, TypeScript, JavaScript, SQL, HTML/CSS.
+- **Frameworks & Platforms:** React, **Flask (Python)**, Vite, .NET WinForms, Streamlit, CodeIgniter, Mendix.
+- **Tools:** Docker, Git/GitHub, Figma, Jira, MySQL, SQL Server.
+
+### 🧠 Trí tuệ nhân tạo (AI Focus)
+- **Specialization:** Machine Learning, Natural Language Processing (NLP), **Fuzzy Logic**.
+- **Libraries:** LangChain, Hugging Face, Generative AI.
 
 ## 📂 Cấu trúc thư mục (Project Structure)
 
 ```text
 Portfolio/
-├── index.html       # Mã nguồn chính (Cấu trúc & Giao diện)
+├── index.html       # File cấu trúc & giao diện chính
 ├── README.md        # Tài liệu hướng dẫn
-├── avt.jpg          # Ảnh đại diện
-├── karaoke.jpg      # Thumbnail dự án Karaoke
-├── milktea.png      # Thumbnail dự án Trà sữa
-└── manager.png      # Thumbnail dự án Quản lý bán hàng
+├── avt.jpg          # Ảnh đại diện cá nhân
+├── karaoke.jpg      # Ảnh dự án Karaoke NNice
+├── milktea.png      # Ảnh dự án Trà sữa POS
+└── manager.png      # Ảnh dự án Sales Management
 ```
 
 ## 🚀 Cài đặt & Sử dụng (Getting Started)
@@ -45,16 +44,14 @@ Portfolio/
    ```bash
    git clone https://github.com/nmdai679/Portfolio.git
    ```
-2. **Mở file `index.html`** bằng trình duyệt của bạn hoặc sử dụng **Live Server** trên VS Code để có trải nghiệm tốt nhất.
+2. **Khởi chạy:** Mở file `index.html` trực tiếp bằng trình duyệt hoặc sử dụng extension **Live Server** trên VS Code.
 
 ## 👤 Thông tin liên hệ (Contact)
 
-- **Nguyễn Minh Đại** - Sinh viên năm 3 IT & Sư phạm Tin học (ĐH Sư phạm TP.HCM).
+- **Nguyễn Minh Đại** - Sinh viên năm 3 IT & Sư phạm Tin học.
 - **Email:** minhdainguyen.2005@gmail.com
-- **Phone:** 0865 194 548
 - **GitHub:** [nmdai679](https://github.com/nmdai679)
 - **LinkedIn:** [nmdai679](https://linkedin.com/in/nmdai679)
-- **Website:** [nmdai679.github.io](https://nmdai679.github.io)
 
 ---
-*Dự án được thực hiện với niềm đam mê về Công nghệ và Giáo dục.*
+*Mỗi dòng code đều mang theo tâm huyết về một tương lai số hóa giáo dục.*
