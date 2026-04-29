@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="vi" class="scroll-smooth">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Portfolio của Nguyễn Minh Đại - Sinh viên CNTT đam mê Web/Desktop và AI trong EdTech.">
-    <title>Nguyễn Minh Đại | Portfolio Cá Nhân</title>
+    <meta name="description" content="Portfolio của Nguyễn Minh Đại - Creative Frontend Developer & IT Student. Chuyên gia về Web, AI và EdTech.">
+    <title>Nguyễn Minh Đại | Senior Creative Portfolio</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,191 +18,324 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#3b82f6', // Nổi bật: Blue
-                        dark: '#0f172a',    // Nền tối: Slate 900
-                        card: '#1e293b'     // Nền Card: Slate 800
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                        },
+                        dark: '#050505',
+                        glass: 'rgba(255, 255, 255, 0.03)',
+                        'glass-border': 'rgba(255, 255, 255, 0.1)',
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
                     }
                 }
             }
         }
     </script>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- CSS tuỳ chỉnh -->
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #e2e8f0;
+            overflow-x: hidden;
         }
 
-        /* Hiệu ứng kính cho Navbar */
-        .glass-nav {
-            background: rgba(15, 23, 42, 0.85);
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Hiệu ứng hover cho Card dự án */
-        .project-card {
-            transition: all 0.3s ease;
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
         }
 
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
-            border-color: rgba(59, 130, 246, 0.6);
+        .nav-scrolled {
+            background: rgba(5, 5, 5, 0.8) !important;
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            height: 4.5rem !important;
         }
 
-        /* Tuỳ chỉnh Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
-
-        /* Animation Gradient Background */
-        .gradient-text {
-            background: linear-gradient(to right, #60a5fa, #3b82f6, #8b5cf6);
+        .text-gradient {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
             -webkit-background-clip: text;
-            background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .bento-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { 
+            background: #1e293b; 
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+        .typed-cursor {
+            color: #38bdf8;
+            font-size: 1.2em;
+        }
+
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(129, 140, 248, 0.15) 100%);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
         }
     </style>
 </head>
+<body class="antialiased selection:bg-primary-500 selection:text-white">
 
-<body class="bg-dark text-slate-300 antialiased selection:bg-primary selection:text-white">
+    <!-- Blobs Background -->
+    <div class="blob top-[-100px] left-[-100px] animate-pulse-slow"></div>
+    <div class="blob bottom-[-100px] right-[-100px] animate-pulse-slow" style="animation-delay: 2s;"></div>
 
-    <!-- Navbar -->
-    <header class="glass-nav fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <a href="#about"
-                    class="text-2xl font-bold text-white tracking-widest hover:text-primary transition-colors">
-                    NMD<span class="text-primary">.</span>
-                </a>
+    <!-- Header -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-[100] h-24 flex items-center transition-all duration-500">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-3xl font-extrabold tracking-tighter text-white group">
+                MD<span class="text-primary-400 group-hover:animate-ping">.</span>
+            </a>
 
-                <!-- Desktop Menu -->
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#about"
-                        class="text-sm font-medium hover:text-primary transition-colors hover:scale-105 transform">Giới
-                        Thiệu</a>
-                    <a href="#projects"
-                        class="text-sm font-medium hover:text-primary transition-colors hover:scale-105 transform">Dự
-                        Án</a>
-                    <a href="#certificates"
-                        class="text-sm font-medium hover:text-primary transition-colors hover:scale-105 transform">Chứng
-                        Chỉ</a>
-                    <a href="#contact"
-                        class="text-sm font-medium hover:text-primary transition-colors hover:scale-105 transform">Liên
-                        Hệ</a>
-                </nav>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-10">
+                <a href="#about" class="text-sm font-semibold text-slate-400 hover:text-primary-400 transition-colors">Giới thiệu</a>
+                <a href="#skills" class="text-sm font-semibold text-slate-400 hover:text-primary-400 transition-colors">Kỹ năng</a>
+                <a href="#projects" class="text-sm font-semibold text-slate-400 hover:text-primary-400 transition-colors">Dự án</a>
+                <a href="#certificates" class="text-sm font-semibold text-slate-400 hover:text-primary-400 transition-colors">Chứng chỉ</a>
+                <a href="#contact" class="px-5 py-2.5 bg-primary-500 text-white text-sm font-bold rounded-full hover:bg-primary-600 transition-all shadow-lg shadow-primary-500/20">Liên hệ</a>
+            </nav>
 
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Mobile Menu Dropdown -->
-            <div id="mobile-menu" class="hidden md:hidden pb-6">
-                <div class="flex flex-col space-y-4">
-                    <a href="#about"
-                        class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-primary transition-colors">Giới
-                        Thiệu</a>
-                    <a href="#projects"
-                        class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-primary transition-colors">Dự
-                        Án</a>
-                    <a href="#certificates"
-                        class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-primary transition-colors">Chứng
-                        Chỉ</a>
-                    <a href="#contact"
-                        class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-primary transition-colors">Liên
-                        Hệ</a>
-                </div>
-            </div>
+            <!-- Mobile Toggle -->
+            <button class="md:hidden text-white text-2xl" id="menu-btn">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Hero / About Section -->
-        <section id="about" class="min-h-screen flex items-center pt-20 px-6 lg:px-8 relative overflow-hidden">
-            <!-- Background Decoration -->
-            <div
-                class="absolute top-20 left-0 w-72 h-72 bg-primary/20 rounded-full blur-3xl -z-10 mix-blend-screen opacity-50 animate-pulse">
-            </div>
-            <div
-                class="absolute bottom-20 right-0 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl -z-10 mix-blend-screen opacity-50">
-            </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-[99] bg-dark/95 backdrop-blur-xl hidden flex-col items-center justify-center space-y-8 transition-all duration-500">
+        <button class="absolute top-8 right-8 text-white text-3xl" id="close-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="#about" class="text-2xl font-bold text-white mobile-link">Giới thiệu</a>
+        <a href="#skills" class="text-2xl font-bold text-white mobile-link">Kỹ năng</a>
+        <a href="#projects" class="text-2xl font-bold text-white mobile-link">Dự án</a>
+        <a href="#certificates" class="text-2xl font-bold text-white mobile-link">Chứng chỉ</a>
+        <a href="#contact" class="px-8 py-3 bg-primary-500 text-white font-bold rounded-full mobile-link">Liên hệ</a>
+    </div>
 
-            <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1">
-                    <p class="text-primary font-mono font-medium mb-3 tracking-wide">Xin chào, tôi là</p>
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-tight whitespace-nowrap">
+    <main>
+        <!-- Hero Section -->
+        <section class="min-h-screen pt-32 pb-20 flex items-center relative overflow-hidden">
+            <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-xs font-bold uppercase tracking-widest mb-6">
+                        Senior Creative Developer
+                    </span>
+                    <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
                         Nguyễn Minh Đại
                     </h1>
-                    <h2 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 text-slate-400">
-                        <span class="gradient-text whitespace-nowrap">Frontend Developer</span> <span class="inline-block">&amp; Đam Mê Công Nghệ</span>
+                    <h2 class="text-2xl md:text-3xl font-medium text-slate-400 mb-8 h-12">
+                        I am a <span id="typed" class="text-primary-400 font-bold"></span>
                     </h2>
-
-                    <div
-                        class="border-l-4 border-primary pl-4 mb-8 bg-slate-800/30 p-4 rounded-r-lg border border-slate-800 shadow-sm border-l-primary">
-                        <p class="text-slate-300 md:text-lg mb-2"><i class="fa-solid fa-id-card w-6 text-primary"></i>
-                            <strong>MSSV:</strong> 49.01.104.027</p>
-                        <p class="text-slate-300 md:text-lg"><i class="fa-solid fa-graduation-cap w-6 text-primary"></i>
-                            <strong>Định hướng:</strong> Sinh viên năm 3, học song ngành Công nghệ Thông tin & Sư phạm
-                            Tin học tại ĐH Sư phạm TP.HCM.</p>
-                    </div>
-
-                    <p class="text-slate-400 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl">
-                        Đam mê phát triển ứng dụng Web/Desktop và có khát khao nghiên cứu, tích hợp các giải pháp Trí
-                        tuệ nhân tạo (AI) vào các ứng dụng công nghệ giáo dục (EdTech), mang lại trải nghiệm học tập
-                        hiện đại.
+                    <p class="text-lg text-slate-400 leading-relaxed max-w-xl mb-10">
+                        Sinh viên năm 3 song ngành <span class="text-white font-semibold">Công nghệ Thông tin & Sư phạm Tin học</span>. 
+                        Đam mê kiến tạo các giải pháp EdTech hiện đại và tích hợp trí tuệ nhân tạo (AI).
                     </p>
-
-                    <div class="flex gap-4">
-                        <a href="#projects"
-                            class="px-8 py-3 bg-primary text-white font-medium rounded-lg hover:bg-blue-600 transition-colors shadow-lg shadow-primary/30 flex items-center gap-2">
-                            Xem Dự Án <i class="fa-solid fa-arrow-right"></i>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="px-8 py-4 bg-primary-500 text-white font-bold rounded-xl hover:bg-primary-600 transition-all shadow-xl shadow-primary-500/20 flex items-center">
+                            Xem dự án của tôi <i class="fa-solid fa-arrow-right ml-3"></i>
                         </a>
-                        <a href="#contact"
-                            class="px-8 py-3 bg-transparent border border-slate-600 text-slate-300 font-medium rounded-lg hover:border-slate-400 hover:text-white transition-colors">
-                            Liên Hệ
+                        <a href="https://drive.google.com/file/d/your-cv-id/view" target="_blank" class="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-all flex items-center backdrop-blur-sm">
+                            <i class="fa-solid fa-download mr-3"></i> Tải CV
                         </a>
                     </div>
                 </div>
 
-                <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
-                    <div
-                        class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full border-4 border-slate-800 p-2 shadow-2xl">
-                        <!-- Ảnh đại diện -->
-                        <div class="w-full h-full rounded-full bg-slate-800 overflow-hidden relative group">
-                            <img src="./avt.jpg" alt="Nguyễn Minh Đại"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-tr from-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div class="relative flex justify-center" data-aos="zoom-in" data-aos-duration="1200">
+                    <div class="relative w-72 h-72 md:w-[450px] md:h-[450px]">
+                        <!-- Decorative Rings -->
+                        <div class="absolute inset-0 border-2 border-primary-500/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                        <div class="absolute inset-4 border border-white/10 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+                        
+                        <!-- Avatar -->
+                        <div class="absolute inset-8 rounded-full overflow-hidden border-4 border-white/5 shadow-2xl">
+                            <img src="./avt.jpg" alt="Nguyễn Minh Đại" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                        </div>
+
+                        <!-- Floating Tech Icons -->
+                        <div class="absolute -top-4 -right-4 w-16 h-16 glass-card rounded-2xl flex items-center justify-center animate-float" style="animation-delay: 0s;">
+                            <i class="fa-brands fa-react text-primary-400 text-3xl"></i>
+                        </div>
+                        <div class="absolute top-1/2 -left-8 w-14 h-14 glass-card rounded-2xl flex items-center justify-center animate-float" style="animation-delay: 1s;">
+                            <i class="fa-brands fa-python text-yellow-500 text-2xl"></i>
+                        </div>
+                        <div class="absolute -bottom-4 right-1/4 w-12 h-12 glass-card rounded-2xl flex items-center justify-center animate-float" style="animation-delay: 2s;">
+                            <i class="fa-solid fa-brain text-purple-400 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 bg-dark relative">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto glass-card p-10 md:p-16 rounded-[40px] border border-white/5 relative overflow-hidden" data-aos="fade-up">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-primary-500/10 blur-3xl rounded-full"></div>
+                    
+                    <div class="flex flex-col md:flex-row gap-12 items-center">
+                        <div class="w-full md:w-1/3">
+                            <h3 class="text-3xl font-extrabold text-white mb-6">Sứ mệnh <br><span class="text-gradient">Duality</span></h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-3 text-slate-400">
+                                    <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary-400">
+                                        <i class="fa-solid fa-code"></i>
+                                    </div>
+                                    <span class="font-medium">Software Engineer</span>
+                                </div>
+                                <div class="flex items-center space-x-3 text-slate-400">
+                                    <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary-400">
+                                        <i class="fa-solid fa-chalkboard-user"></i>
+                                    </div>
+                                    <span class="font-medium">Informatics Pedagogy</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <p class="text-xl text-slate-300 leading-relaxed mb-6">
+                                "Sự kết hợp giữa tư duy kỹ thuật logic của một <span class="text-white font-bold">Lập trình viên</span> và phương pháp truyền đạt sư phạm giúp tôi không chỉ xây dựng được những hệ thống mạnh mẽ mà còn có khả năng thiết kế các trải nghiệm người dùng <span class="text-white font-bold">dễ tiếp cận, trực quan và hiệu quả</span>."
+                            </p>
+                            <p class="text-slate-400 leading-relaxed">
+                                Tôi tập trung vào việc áp dụng AI để giải quyết các bài toán giáo dục, giúp thu hẹp khoảng cách giữa công nghệ và người học. Mỗi dòng code tôi viết đều mang theo tâm huyết về một tương lai số hóa toàn diện.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Bento Grid -->
+        <section id="skills" class="py-24 bg-dark">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col items-center mb-16 text-center">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Hệ sinh thái kỹ năng</h2>
+                    <p class="text-slate-400 max-w-2xl text-lg">Phối hợp đa dạng các công nghệ để tạo ra những sản phẩm hoàn thiện nhất.</p>
+                </div>
+
+                <div class="bento-grid">
+                    <!-- Languages -->
+                    <div class="md:col-span-2 glass-card p-8 rounded-3xl group" data-aos="fade-up" data-tilt>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl transition-transform group-hover:rotate-12">
+                                <i class="fa-solid fa-terminal"></i>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-tighter">Languages</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-4">Ngôn ngữ cốt lõi</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-sm text-slate-300 border border-white/5 hover:border-blue-400/50 transition-colors">JavaScript (ES6+)</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-sm text-slate-300 border border-white/5 hover:border-blue-400/50 transition-colors">Python</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-sm text-slate-300 border border-white/5 hover:border-blue-400/50 transition-colors">C# (.NET)</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-sm text-slate-300 border border-white/5 hover:border-blue-400/50 transition-colors">SQL</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-sm text-slate-300 border border-white/5 hover:border-blue-400/50 transition-colors">PHP</span>
+                        </div>
+                    </div>
+
+                    <!-- AI Focus -->
+                    <div class="md:col-span-2 glass-card p-8 rounded-3xl group" data-aos="fade-up" data-aos-delay="100" data-tilt>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-2xl transition-transform group-hover:scale-110">
+                                <i class="fa-solid fa-microchip"></i>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-tighter">Specialization</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-4">AI & Data Science</h4>
+                        <p class="text-slate-400 text-sm mb-4">Tập trung nghiên cứu Machine Learning và Generative AI cho EdTech.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-purple-500/10 rounded-full text-xs text-purple-300 border border-purple-500/20">Pandas</span>
+                            <span class="px-3 py-1 bg-purple-500/10 rounded-full text-xs text-purple-300 border border-purple-500/20">Scikit-learn</span>
+                            <span class="px-3 py-1 bg-purple-500/10 rounded-full text-xs text-purple-300 border border-purple-500/20">Google GenAI</span>
+                        </div>
+                    </div>
+
+                    <!-- Frameworks -->
+                    <div class="md:col-span-4 lg:col-span-2 glass-card p-8 rounded-3xl group" data-aos="fade-up" data-aos-delay="200" data-tilt>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-2xl group-hover:animate-spin">
+                                <i class="fa-brands fa-react"></i>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-tighter">Frameworks</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-4">Frontend & Web</h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-xs text-slate-400"><span>React & Next.js</span><span>90%</span></div>
+                            <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-orange-500 rounded-full" style="width: 90%;"></div></div>
+                            <div class="flex justify-between text-xs text-slate-400"><span>Tailwind CSS</span><span>95%</span></div>
+                            <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-orange-500 rounded-full" style="width: 95%;"></div></div>
+                        </div>
+                    </div>
+
+                    <!-- Tools -->
+                    <div class="md:col-span-4 lg:col-span-4 glass-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex items-center space-x-6">
+                            <div class="hidden md:flex w-24 h-24 rounded-2xl bg-primary-500/10 items-center justify-center text-primary-400 text-4xl">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-white mb-3">Công cụ & Quy trình</h4>
+                                <p class="text-slate-400 text-sm mb-4">Sử dụng các công cụ hiện đại để tối ưu hóa quy trình làm việc và chất lượng sản phẩm.</p>
+                                <div class="flex flex-wrap gap-4 text-2xl text-slate-500">
+                                    <i class="fa-brands fa-git-alt hover:text-white transition-colors" title="Git"></i>
+                                    <i class="fa-brands fa-github hover:text-white transition-colors" title="GitHub"></i>
+                                    <i class="fa-brands fa-docker hover:text-white transition-colors" title="Docker"></i>
+                                    <i class="fa-brands fa-figma hover:text-white transition-colors" title="Figma"></i>
+                                    <i class="fa-brands fa-npm hover:text-white transition-colors" title="NPM"></i>
+                                    <i class="fa-solid fa-database hover:text-white transition-colors" title="Database"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -208,110 +344,112 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-24 px-6 lg:px-8 bg-slate-900/50">
-            <div class="max-w-6xl mx-auto">
-                <div class="flex items-center gap-4 mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white"><span class="text-primary">01.</span> Dự Án
-                        Nổi Bật</h2>
-                    <div class="h-px bg-slate-700 flex-grow max-w-sm"></div>
+        <section id="projects" class="py-24 bg-dark">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                    <div>
+                        <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-4">Dự án <span class="text-gradient">Tiêu biểu</span></h2>
+                        <p class="text-slate-400 max-w-xl">Những sản phẩm được đúc kết từ kỹ thuật chuyên sâu và tư duy sáng tạo.</p>
+                    </div>
+                    <a href="https://github.com/nmdai679" target="_blank" class="text-primary-400 font-bold flex items-center hover:translate-x-2 transition-transform">
+                        Xem tất cả trên GitHub <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+                    </a>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project 1 -->
-                    <div
-                        class="project-card bg-card border border-slate-700 rounded-xl overflow-hidden flex flex-col h-full group">
-                        <div
-                            class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity duration-300">
-                            <img src="./karaoke.jpg" alt="NNice Karaoke Management"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-card"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Project 1: Mini AI PDF Assistant -->
+                    <div class="glass-card group rounded-[32px] overflow-hidden flex flex-col" data-aos="fade-up" data-tilt>
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent z-10"></div>
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop" alt="Mini AI PDF Assistant" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-6 left-6 z-20 flex gap-2">
+                                <span class="px-3 py-1 bg-purple-500 text-white text-xs font-bold rounded-full">AI / Python</span>
+                                <span class="px-3 py-1 bg-white/10 backdrop-blur-md text-white text-xs font-bold rounded-full">Streamlit</span>
+                            </div>
                         </div>
-                        <div class="p-6 flex flex-col flex-grow relative z-10 -mt-6">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">
-                                    NNice Karaoke Management</h3>
-                                <i class="fa-solid fa-folder-open text-primary text-xl"></i>
+                        <div class="p-8 flex flex-col flex-1 z-20">
+                            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary-400 transition-colors">Mini AI PDF Assistant</h3>
+                            <ul class="text-slate-400 space-y-2 mb-8 text-sm flex-1">
+                                <li><i class="fa-solid fa-check text-primary-400 mr-2"></i> Tích hợp mô hình GPT để trả lời câu hỏi dựa trên nội dung PDF.</li>
+                                <li><i class="fa-solid fa-check text-primary-400 mr-2"></i> Xử lý ngôn ngữ tự nhiên (NLP) cho độ chính xác cao.</li>
+                                <li><i class="fa-solid fa-check text-primary-400 mr-2"></i> Giao diện Web tinh gọn, tối ưu trải nghiệm người dùng.</li>
+                            </ul>
+                            <div class="flex gap-4">
+                                <a href="https://github.com/nmdai679" class="flex-1 py-3 text-center bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-all">Code</a>
+                                <a href="#" class="flex-1 py-3 text-center bg-primary-500 text-white font-bold rounded-xl hover:bg-primary-600 transition-all shadow-lg shadow-primary-500/20">Live Demo</a>
                             </div>
-                            <p class="text-slate-400 text-sm mb-6 flex-grow">
-                                Hệ thống quản lý phòng hát chuyên nghiệp, đặt dịch vụ và báo cáo doanh thu với các phân
-                                hệ dành riêng cho Admin và Lễ tân.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6 text-xs font-mono text-slate-300">
-                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">React</span>
-                                <span
-                                    class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">TypeScript</span>
-                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">Vite</span>
-                                <span
-                                    class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">Tailwind</span>
-                            </div>
-                            <a href="https://github.com/nmdai679/FE_PTTKHDT_KaraokeNNice" target="_blank"
-                                class="text-sm font-medium text-white bg-slate-700 hover:bg-primary py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 w-full">
-                                <i class="fa-brands fa-github text-lg"></i> Xem trên GitHub
-                            </a>
                         </div>
                     </div>
 
-                    <!-- Project 2 -->
-                    <div
-                        class="project-card bg-card border border-slate-700 rounded-xl overflow-hidden flex flex-col h-full group">
-                        <div
-                            class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity duration-300">
-                            <img src="./milktea.png" alt="Milk Tea Shop Management"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-card"></div>
+                    <!-- Project 2: Karaoke NNice -->
+                    <div class="glass-card group rounded-[32px] overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="100" data-tilt>
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent z-10"></div>
+                            <img src="./karaoke.jpg" alt="Karaoke NNice" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-6 left-6 z-20 flex gap-2">
+                                <span class="px-3 py-1 bg-blue-500 text-white text-xs font-bold rounded-full">React</span>
+                                <span class="px-3 py-1 bg-sky-400 text-white text-xs font-bold rounded-full">TypeScript</span>
+                            </div>
                         </div>
-                        <div class="p-6 flex flex-col flex-grow relative z-10 -mt-6">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">Milk
-                                    Tea Shop Management</h3>
-                                <i class="fa-solid fa-folder-open text-emerald-500 text-xl"></i>
+                        <div class="p-8 flex flex-col flex-1 z-20">
+                            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary-400 transition-colors">Hệ thống Karaoke NNice</h3>
+                            <ul class="text-slate-400 space-y-2 mb-8 text-sm flex-1">
+                                <li><i class="fa-solid fa-check text-primary-400 mr-2"></i> Quản lý đặt phòng, dịch vụ thời gian thực với React.</li>
+                                <li><i class="fa-solid fa-check text-primary-400 mr-2"></i> Hệ thống phân quyền chặt chẽ Admin/Staff.</li>
+                                <li><i class="fa-solid fa-check text-primary-400 mr-2"></i> Báo cáo thống kê doanh thu trực quan dạng Dashboard.</li>
+                            </ul>
+                            <div class="flex gap-4">
+                                <a href="https://github.com/nmdai679/FE_PTTKHDT_KaraokeNNice" class="flex-1 py-3 text-center bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-all">Code</a>
+                                <a href="#" class="flex-1 py-3 text-center bg-primary-500 text-white font-bold rounded-xl hover:bg-primary-600 transition-all shadow-lg shadow-primary-500/20">Live Demo</a>
                             </div>
-                            <p class="text-slate-400 text-sm mb-6 flex-grow">
-                                Phần mềm POS quản lý bán trà sữa, topping và thống kê doanh thu chuẩn mô hình thiết kế 3
-                                lớp (3-tier) cho các cửa hàng.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6 text-xs font-mono text-slate-300">
-                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">C#</span>
-                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">.NET
-                                    WinForms</span>
-                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">MySQL</span>
-                            </div>
-                            <a href="https://github.com/nmdai679/QLBTS" target="_blank"
-                                class="text-sm font-medium text-white bg-slate-700 hover:bg-primary py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 w-full mt-auto">
-                                <i class="fa-brands fa-github text-lg"></i> Xem trên GitHub
-                            </a>
                         </div>
                     </div>
 
-                    <!-- Project 3 -->
-                    <div
-                        class="project-card bg-card border border-slate-700 rounded-xl overflow-hidden flex flex-col h-full group">
-                        <div
-                            class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity duration-300">
-                            <img src="./manager.png" alt="Sales Management System"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-card"></div>
+                    <!-- Project 3: Trà sữa POS -->
+                    <div class="glass-card group rounded-[32px] overflow-hidden flex flex-col" data-aos="fade-up" data-tilt>
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent z-10"></div>
+                            <img src="./milktea.png" alt="Trà sữa POS" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-6 left-6 z-20 flex gap-2">
+                                <span class="px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">C# / .NET</span>
+                                <span class="px-3 py-1 bg-yellow-500 text-white text-xs font-bold rounded-full">MySQL</span>
+                            </div>
                         </div>
-                        <div class="p-6 flex flex-col flex-grow relative z-10 -mt-6">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">
-                                    Sales Management System</h3>
-                                <i class="fa-solid fa-folder-open text-purple-500 text-xl"></i>
+                        <div class="p-8 flex flex-col flex-1 z-20">
+                            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary-400 transition-colors">Milk Tea POS Management</h3>
+                            <ul class="text-slate-400 space-y-2 mb-8 text-sm flex-1">
+                                <li><i class="fa-solid fa-check text-primary-400 mr-2"></i> Kiến trúc 3 lớp (3-tier) đảm bảo tính mở rộng.</li>
+                                <li><i class="fa-solid fa-check text-primary-400 mr-2"></i> Quản lý Menu, Topping và thanh toán linh hoạt.</li>
+                                <li><i class="fa-solid fa-check text-primary-400 mr-2"></i> Tối ưu hóa tốc độ truy vấn cơ sở dữ liệu MySQL.</li>
+                            </ul>
+                            <div class="flex gap-4">
+                                <a href="https://github.com/nmdai679/QLBTS" class="flex-1 py-3 text-center bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-all">Code</a>
+                                <a href="#" class="flex-1 py-3 text-center bg-primary-500 text-white font-bold rounded-xl hover:bg-primary-600 transition-all shadow-lg shadow-primary-500/20">Live Demo</a>
                             </div>
-                            <p class="text-slate-400 text-sm mb-6 flex-grow">
-                                Phần mềm quản lý bán hàng tích hợp tính năng tạo, in hóa đơn và xuất báo cáo thống kê
-                                định kỳ hàng tháng.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6 text-xs font-mono text-slate-300">
-                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">C#</span>
-                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">LINQ to
-                                    SQL</span>
-                                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">RDLC</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Sales Management -->
+                    <div class="glass-card group rounded-[32px] overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="100" data-tilt>
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent z-10"></div>
+                            <img src="./manager.png" alt="Sales Management" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-6 left-6 z-20 flex gap-2">
+                                <span class="px-3 py-1 bg-red-500 text-white text-xs font-bold rounded-full">C#</span>
+                                <span class="px-3 py-1 bg-orange-600 text-white text-xs font-bold rounded-full">LINQ to SQL</span>
                             </div>
-                            <a href="https://github.com/nmdai679/QLBH" target="_blank"
-                                class="text-sm font-medium text-white bg-slate-700 hover:bg-primary py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 w-full mt-auto">
-                                <i class="fa-brands fa-github text-lg"></i> Xem trên GitHub
-                            </a>
+                        </div>
+                        <div class="p-8 flex flex-col flex-1 z-20">
+                            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary-400 transition-colors">Sales Management System</h3>
+                            <ul class="text-slate-400 space-y-2 mb-8 text-sm flex-1">
+                                <li><i class="fa-solid fa-check text-primary-400 mr-2"></i> Tự động hóa quy trình in hóa đơn và xuất báo cáo.</li>
+                                <li><i class="fa-solid fa-check text-primary-400 mr-2"></i> Sử dụng RDLC để tạo các mẫu báo cáo chuyên nghiệp.</li>
+                                <li><i class="fa-solid fa-check text-primary-400 mr-2"></i> Giao diện WinForms thân thiện, dễ sử dụng.</li>
+                            </ul>
+                            <div class="flex gap-4">
+                                <a href="https://github.com/nmdai679/QLBH" class="flex-1 py-3 text-center bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-all">Code</a>
+                                <a href="#" class="flex-1 py-3 text-center bg-primary-500 text-white font-bold rounded-xl hover:bg-primary-600 transition-all shadow-lg shadow-primary-500/20">Live Demo</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -319,55 +457,72 @@
         </section>
 
         <!-- Certificates Section -->
-        <section id="certificates" class="py-24 px-6 lg:px-8 relative">
-            <div class="max-w-4xl mx-auto">
-                <div class="flex items-center gap-4 mb-16 justify-center text-center">
-                    <div class="h-px bg-slate-700 flex-grow max-w-[100px] hidden md:block"></div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white"><span class="text-primary">02.</span> Chứng
-                        Chỉ & Thành Tựu</h2>
-                    <div class="h-px bg-slate-700 flex-grow max-w-[100px] hidden md:block"></div>
+        <section id="certificates" class="py-24 bg-dark">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-extrabold text-white mb-4">Chứng chỉ & Thành tựu</h2>
+                    <p class="text-slate-400">Minh chứng cho sự nỗ lực và quá trình học tập không ngừng nghỉ.</p>
                 </div>
 
-                <div class="space-y-6">
-                    <!-- Cert 1 -->
-                    <div
-                        class="bg-card border border-slate-700/50 hover:border-primary/50 p-6 rounded-xl flex items-center gap-6 group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-slate-800/80">
-                        <div
-                            class="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                            <i class="fa-brands fa-google text-3xl text-blue-400"></i>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Cert 1: Kaggle Python -->
+                    <div class="glass-card p-6 rounded-2xl flex items-center space-x-4 border-l-4 border-l-yellow-500" data-aos="zoom-in" data-tilt>
+                        <div class="w-12 h-12 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-500 text-xl flex-shrink-0">
+                            <i class="fa-brands fa-python"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-slate-200 group-hover:text-primary transition-colors">
-                                Google Cloud Generative AI Learning Path</h3>
-                            <p class="text-slate-400 text-sm mt-1">Google Cloud Training</p>
+                            <h4 class="text-white font-bold text-sm">Kaggle Python</h4>
+                            <p class="text-slate-500 text-xs">Kaggle Academy</p>
                         </div>
                     </div>
-
-                    <!-- Cert 2 -->
-                    <div
-                        class="bg-card border border-slate-700/50 hover:border-blue-500/50 p-6 rounded-xl flex items-center gap-6 group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-slate-800/80">
-                        <div
-                            class="w-16 h-16 rounded-full bg-sky-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-code text-3xl text-sky-400"></i>
+                    <!-- Cert 2: Kaggle ML -->
+                    <div class="glass-card p-6 rounded-2xl flex items-center space-x-4 border-l-4 border-l-blue-500" data-aos="zoom-in" data-aos-delay="100" data-tilt>
+                        <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500 text-xl flex-shrink-0">
+                            <i class="fa-solid fa-robot"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-slate-200 group-hover:text-blue-400 transition-colors">
-                                Mendix Rapid Developer Certification</h3>
-                            <p class="text-slate-400 text-sm mt-1">Mendix Academy</p>
+                            <h4 class="text-white font-bold text-sm">Intro to Machine Learning</h4>
+                            <p class="text-slate-500 text-xs">Kaggle Academy</p>
                         </div>
                     </div>
-
-                    <!-- Cert 3 -->
-                    <div
-                        class="bg-card border border-slate-700/50 hover:border-orange-500/50 p-6 rounded-xl flex items-center gap-6 group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-slate-800/80">
-                        <div
-                            class="w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                            <i class="fa-brands fa-microsoft text-3xl text-orange-500"></i>
+                    <!-- Cert 3: HackerRank React -->
+                    <div class="glass-card p-6 rounded-2xl flex items-center space-x-4 border-l-4 border-l-emerald-500" data-aos="zoom-in" data-aos-delay="200" data-tilt>
+                        <div class="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 text-xl flex-shrink-0">
+                            <i class="fa-brands fa-react"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-slate-200 group-hover:text-orange-400 transition-colors">
-                                Microsoft Office Specialist (MOS)</h3>
-                            <p class="text-slate-400 text-sm mt-1">Microsoft Certification</p>
+                            <h4 class="text-white font-bold text-sm">React (Basic) Certified</h4>
+                            <p class="text-slate-500 text-xs">HackerRank</p>
+                        </div>
+                    </div>
+                    <!-- Cert 4: Google GenAI -->
+                    <div class="glass-card p-6 rounded-2xl flex items-center space-x-4 border-l-4 border-l-red-500" data-aos="zoom-in" data-aos-delay="300" data-tilt>
+                        <div class="w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center text-red-500 text-xl flex-shrink-0">
+                            <i class="fa-brands fa-google"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Google Cloud GenAI</h4>
+                            <p class="text-slate-500 text-xs">Google Cloud</p>
+                        </div>
+                    </div>
+                    <!-- Cert 5: Mendix -->
+                    <div class="glass-card p-6 rounded-2xl flex items-center space-x-4 border-l-4 border-l-sky-500" data-aos="zoom-in" data-aos-delay="400" data-tilt>
+                        <div class="w-12 h-12 rounded-full bg-sky-500/10 flex items-center justify-center text-sky-500 text-xl flex-shrink-0">
+                            <i class="fa-solid fa-code-merge"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Rapid Developer</h4>
+                            <p class="text-slate-500 text-xs">Mendix Academy</p>
+                        </div>
+                    </div>
+                    <!-- Cert 6: MOS -->
+                    <div class="glass-card p-6 rounded-2xl flex items-center space-x-4 border-l-4 border-l-orange-500" data-aos="zoom-in" data-aos-delay="500" data-tilt>
+                        <div class="w-12 h-12 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500 text-xl flex-shrink-0">
+                            <i class="fa-brands fa-microsoft"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">MOS Certification</h4>
+                            <p class="text-slate-500 text-xs">Microsoft Office</p>
                         </div>
                     </div>
                 </div>
@@ -375,68 +530,137 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-24 px-6 lg:px-8 bg-slate-900/80 border-t border-slate-800">
-            <div class="max-w-3xl mx-auto text-center">
-                <p class="text-primary font-mono font-medium mb-4 tracking-wide">03. Kết nối với tôi</p>
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Liên Hệ Làm Việc</h2>
-                <p class="text-slate-400 text-lg mb-10 max-w-xl mx-auto">
-                    Tôi luôn cởi mở đón nhận các cơ hội mới, những dự án thú vị và những cuộc trò chuyện về công nghệ
-                    Web, Desktop cũng như AI. Đừng ngần ngại liên hệ nhé!
-                </p>
+        <section id="contact" class="py-24 bg-dark">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <div data-aos="fade-right">
+                        <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-6">Hãy bắt đầu <br><span class="text-gradient">Câu chuyện mới</span></h2>
+                        <p class="text-slate-400 text-lg mb-12">Đang tìm kiếm cơ hội hợp tác hoặc đơn giản là muốn trao đổi về công nghệ? Đừng ngần ngại liên hệ với tôi.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-6 group">
+                                <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-primary-400 text-2xl group-hover:bg-primary-500 group-hover:text-white transition-all">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-slate-500 text-sm uppercase font-bold tracking-widest">Email</p>
+                                    <p class="text-white font-bold">minhdainguyen.2005@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-6 group">
+                                <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-primary-400 text-2xl group-hover:bg-primary-500 group-hover:text-white transition-all">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-slate-500 text-sm uppercase font-bold tracking-widest">Phone</p>
+                                    <p class="text-white font-bold">0865 194 548</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
-                    <a href="mailto:minhdainguyen.2005@gmail.com"
-                        class="flex items-center gap-3 bg-slate-800 px-6 py-4 rounded-xl border border-slate-700 hover:border-primary transition-colors group w-full md:w-auto">
-                        <i
-                            class="fa-solid fa-envelope text-2xl text-slate-400 group-hover:text-primary transition-colors"></i>
-                        <span class="text-slate-300 font-medium">minhdainguyen.2005@gmail.com</span>
-                    </a>
-                    <a href="tel:0865194548"
-                        class="flex items-center gap-3 bg-slate-800 px-6 py-4 rounded-xl border border-slate-700 hover:border-primary transition-colors group w-full md:w-auto">
-                        <i
-                            class="fa-solid fa-phone text-2xl text-slate-400 group-hover:text-primary transition-colors"></i>
-                        <span class="text-slate-300 font-medium">0865 194 548</span>
-                    </a>
-                </div>
-
-                <div class="flex justify-center gap-6">
-                    <a href="https://github.com/nmdai679" target="_blank"
-                        class="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-700 hover:border-slate-500 transition-all">
-                        <i class="fa-brands fa-github text-xl"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/nmdai679" target="_blank"
-                        class="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:text-[#0a66c2] hover:bg-slate-800 hover:border-[#0a66c2] transition-all">
-                        <i class="fa-brands fa-linkedin-in text-xl"></i>
-                    </a>
+                    <div data-aos="fade-left">
+                        <form class="glass-card p-10 rounded-[32px] space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-slate-400 text-sm font-bold mb-2">Họ tên</label>
+                                    <input type="text" placeholder="John Doe" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-400 transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-slate-400 text-sm font-bold mb-2">Email</label>
+                                    <input type="email" placeholder="john@example.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-400 transition-colors">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-slate-400 text-sm font-bold mb-2">Lời nhắn</label>
+                                <textarea rows="4" placeholder="Xin chào Đại, tôi muốn..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-400 transition-colors"></textarea>
+                            </div>
+                            <button class="w-full py-4 bg-primary-500 text-white font-bold rounded-xl hover:bg-primary-600 transition-all shadow-xl shadow-primary-500/20">
+                                Gửi tin nhắn <i class="fa-solid fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="py-6 text-center border-t border-slate-800 bg-dark">
-        <p class="text-sm font-mono text-slate-500">
-            &copy; 2026 Được thiết kế và phát triển bởi <a href="https://github.com/nmdai679"
-                class="text-primary hover:underline">Nguyễn Minh Đại</a>.
-        </p>
+    <footer class="py-12 bg-dark border-t border-white/5">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl font-extrabold text-white">MD<span class="text-primary-400">.</span></span>
+                <span class="text-slate-500">|</span>
+                <p class="text-slate-500 text-sm">&copy; 2026 Developed by Nguyen Minh Dai</p>
+            </div>
+            
+            <div class="flex space-x-6">
+                <a href="https://github.com/nmdai679" target="_blank" class="text-slate-500 hover:text-white text-2xl transition-colors"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com/in/nmdai679" target="_blank" class="text-slate-500 hover:text-white text-2xl transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://nmdai679.github.io" target="_blank" class="text-slate-500 hover:text-white text-2xl transition-colors"><i class="fa-solid fa-globe"></i></a>
+            </div>
+        </div>
     </footer>
 
-    <!-- JavaScript cơ bản cho Mobile Menu -->
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    
     <script>
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+        // AOS Initialization
+        AOS.init({
+            once: true,
+            mirror: false
         });
 
-        // Tự động đóng menu khi chọn link (Mobile)
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
+        // Typed.js Initialization
+        new Typed('#typed', {
+            strings: ['IT Student', 'Informatics Pedagogy', 'AI & Software Enthusiast'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true,
+            cursorChar: '|'
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        });
+
+        const hideMenu = () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        };
+
+        closeBtn.addEventListener('click', hideMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', hideMenu));
+
+        // Tilt Effect
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+            max: 5,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
         });
     </script>
 </body>
-
 </html>
